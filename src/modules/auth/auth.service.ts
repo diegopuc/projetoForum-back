@@ -16,13 +16,17 @@ export class AuthService {
 
     const user = await this.userService.findUserByEmail(email)
 
+
+    
     if (!user) {
+      console.log("primeiro if")
       throw new UnauthorizedException('Invalid email or password')
     }
 
     const isPasswordMatched = await bcrypt.compare(password, user.password)
 
     if (!isPasswordMatched) {
+      console.log("segundo if")
       throw new UnauthorizedException('Invalid email or password')
     }
 
