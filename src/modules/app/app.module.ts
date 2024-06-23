@@ -8,7 +8,6 @@ import { UserModule } from '../user/user.module'
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://695056:WGZv2cs18ZbE5ee4@test.srculmn.mongodb.net/?retryWrites=true&w=majority&appName=test',
-      //'mongodb+srv://695056:WGZv2cs18ZbE5ee4@mongodb.tr8mlcr.mongodb.net/?retryWrites=true&w=majority',
       //'mongodb://localhost:27017/local',
     ),
     ProcessModule,
