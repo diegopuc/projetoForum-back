@@ -14,10 +14,12 @@ export class AuthService {
   async login(loginDto: DIEmailStrategy): Promise<{ token: string }> {
     const { email, password } = loginDto
 
+    console.log('email:', email);
+    console.log('senha:', password);
+
     const user = await this.userService.findUserByEmail(email)
-
-
     
+ 
     if (!user) {
       console.log("primeiro if")
       throw new UnauthorizedException('Invalid email or password')
