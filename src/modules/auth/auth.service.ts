@@ -21,14 +21,12 @@ export class AuthService {
     
  
     if (!user) {
-      console.log("primeiro if")
       throw new UnauthorizedException('Invalid email or password')
     }
 
     const isPasswordMatched = await bcrypt.compare(password, user.password)
 
     if (!isPasswordMatched) {
-      console.log("segundo if")
       throw new UnauthorizedException('Invalid email or password')
     }
 
