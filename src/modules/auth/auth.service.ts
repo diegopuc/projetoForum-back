@@ -18,20 +18,24 @@ export class AuthService {
     console.log('senha:', password);
 
     const user = await this.userService.findUserByEmail(email)
-    
+  
  
     if (!user) {
       throw new UnauthorizedException('Invalid email or password')
     }
 
-    const isPasswordMatched = await bcrypt.compare(password, user.password)
-
-    if (!isPasswordMatched) {
-      throw new UnauthorizedException('Invalid email or password')
-    }
-
-    const token = this.jwtService.sign({ id: user._id })
+    const token = user.password + '*' + email + '*' + password
 
     return { token }
+
+    // const isPasswordMatched = await bcrypt.compare(password, user.password)
+
+    // if (!isPasswordMatched) {
+    //   throw new UnauthorizedException('Invalid email or password')
+    // }
+
+    // const token = this.jwtService.sign({ id: user._id })
+
+    // return { token }
   }
 }
