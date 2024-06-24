@@ -6,10 +6,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: '*', // origem permitida
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // se necessário
+    origin: '*', // Adjust according to your needs
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: true,
+    allowedHeaders: [
+      'Accepted',
+      'Content-Type',
+      'Authorization',
+    ]
   });
 
   const config = new DocumentBuilder()
