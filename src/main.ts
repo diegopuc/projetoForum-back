@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // app.use(cors())
    app.enableCors({
-     origin: 'projetoforum-front.onrender.com', // Adjust according to your needs
+     origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com/', // Adjust according to your needs
      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
      preflightContinue: false,
      optionsSuccessStatus: 204,
