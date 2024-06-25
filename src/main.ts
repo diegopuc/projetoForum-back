@@ -1,12 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './modules/app/app.module';
-const cors = require('cors');
+// const cors = require('cors');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.use(cors())
-
+  // app.use(cors())
    app.enableCors({
      origin: 'projetoforum-front.onrender.com', // Adjust according to your needs
      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
