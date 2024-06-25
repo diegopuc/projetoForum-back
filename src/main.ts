@@ -1,33 +1,32 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './modules/app/app.module';
-const cors = require('cors');
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.use(cors())
-   app.enableCors({
-     origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com/', // Adjust according to your needs
-     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-     preflightContinue: false,
-     optionsSuccessStatus: 204,
-     credentials: true,
-     allowedHeaders: [
-       'Accepted',
-       'Content-Type',
-       'Authorization',
-     ]
-   });
-
-  app.use((req, res, next) => {
-    //Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
-      res.header("Access-Control-Allow-Origin", "*");
-    //Quais são os métodos que a conexão pode realizar na API
-      res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
-      app.use(cors());
-      next();
+  // Use apenas uma configuração de CORS
+  app.enableCors({
+    origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com/', // Ajuste conforme necessário
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: true,
+    allowedHeaders: [
+      'Accept',
+      'Content-Type',
+      'Authorization',
+      'X-Requested-With',
+    ],
   });
 
+  // Adicione middleware personalizado para headers CORS
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Accept, Content-Type, Authorization, X-Requested-With");
+    next();
+  });
 
   const config = new DocumentBuilder()
     .setTitle('backend-utip')
