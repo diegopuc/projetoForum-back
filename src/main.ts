@@ -6,13 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: [
-      'https://main.d2zml6m6uc2eec.amplifyapp.com',
-      /https:\/\/main\.d2zml6m6uc2eec\.amplifyapp\.com\/.*/,
-      // 'http://localhost:5173',
-    ], // Ajuste conforme necessário
     // origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com', // Ajuste conforme necessário
-    // origin: 'http://localhost:5173', // Ajuste conforme necessário
+    origin: 'http://localhost:5173', // Ajuste conforme necessário
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Accept',
@@ -45,6 +40,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
   app.setGlobalPrefix('api');
-  await app.listen(3000);
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
 }
 bootstrap();
