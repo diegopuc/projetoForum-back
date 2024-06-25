@@ -9,11 +9,11 @@ async function bootstrap() {
     origin: [
       'https://main.d2zml6m6uc2eec.amplifyapp.com',
       /https:\/\/main\.d2zml6m6uc2eec\.amplifyapp\.com\/.*/,
+      // 'http://localhost:5173',
     ], // Ajuste conforme necessário
     // origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com', // Ajuste conforme necessário
     // origin: 'http://localhost:5173', // Ajuste conforme necessário
-    // methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-    methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Accept',
       'Content-Type',
