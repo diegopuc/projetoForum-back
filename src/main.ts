@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './modules/app/app.module';
-// const cors = require('cors');
+const cors = require('cors');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // app.use(cors())
+  app.use(cors())
    app.enableCors({
      origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com/', // Adjust according to your needs
      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -19,14 +19,14 @@ async function bootstrap() {
      ]
    });
 
-  // app.use((req, res, next) => {
-  //   //Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
-  //     res.header("Access-Control-Allow-Origin", "*");
-  //   //Quais são os métodos que a conexão pode realizar na API
-  //     res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
-  //     app.use(cors());
-  //     next();
-  // });
+  app.use((req, res, next) => {
+    //Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
+      res.header("Access-Control-Allow-Origin", "*");
+    //Quais são os métodos que a conexão pode realizar na API
+      res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+      app.use(cors());
+      next();
+  });
 
 
   const config = new DocumentBuilder()
