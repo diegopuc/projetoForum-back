@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'https://main.d2zml6m6uc2eec.amplifyapp.com', // Ajuste conforme necessário
+    origin: 'https://main.dw4ttizcdvtno.amplifyapp.com/', // Ajuste conforme necessário
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Accept', 'Content-Type', 'Authorization', 'X-Requested-With'],
     credentials: true,
@@ -16,7 +16,7 @@ async function bootstrap() {
   // Middleware para lidar com as requisições OPTIONS manualmente, se necessário
   app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
-      res.header("Access-Control-Allow-Origin", "https://main.d2zml6m6uc2eec.amplifyapp.com");
+      res.header("Access-Control-Allow-Origin", "https://main.dw4ttizcdvtno.amplifyapp.com/");
       res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
       res.header("Access-Control-Allow-Headers", "Accept, Content-Type, Authorization, X-Requested-With");
       res.header("Access-Control-Allow-Credentials", "true");
