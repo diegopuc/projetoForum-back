@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cors())
   app.enableCors({
-    origin: '*', // Ajuste conforme necessário
+    origin: 'http://utip-beta.vercel.app/login', // Ajuste conforme necessário
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Accept',
