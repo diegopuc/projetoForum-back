@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cors())
   app.enableCors({
-    origin: 'https://projetoforum-front.onrender.com', // Ajuste conforme necessário
+    origin: 'https://utip-beta.vercel.app', // Ajuste conforme necessário
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Accept',
@@ -23,7 +23,7 @@ async function bootstrap() {
   // Middleware para lidar com as requisições OPTIONS manualmente, se necessário
   app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
-      res.header("Access-Control-Allow-Origin", "https://projetoforum-front.onrender.com");
+      res.header("Access-Control-Allow-Origin", "https://utip-beta.vercel.app");
       res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
       res.header("Access-Control-Allow-Headers", "Accept, Content-Type, Authorization, X-Requested-With");
       return res.status(204).end();
