@@ -2,7 +2,7 @@ customHeaders:
 - pattern: '*.woff'
   headers:
     - key: 'Access-Control-Allow-Origin'
-      value: 'https://main.d1rhvfd1ad5quw.amplifyapp.com'
+      value: '*'
     - key: 'Access-Control-Allow-Credentials'
       value: 'true'
     - key: 'Access-Control-Allow-Methods'
@@ -10,7 +10,7 @@ customHeaders:
 - pattern: '*.woff2'
   headers:
     - key: 'Access-Control-Allow-Origin'
-      value: 'https://main.d1rhvfd1ad5quw.amplifyapp.com'
+      value: '*'
     - key: 'Access-Control-Allow-Credentials'
       value: 'true'
     - key: 'Access-Control-Allow-Methods'
