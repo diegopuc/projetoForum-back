@@ -1,11 +1,17 @@
 customHeaders:
-  - pattern: "**"
+  - pattern: '**/*'
     headers:
-      - key: Access-Control-Allow-Origin
-        value: "https://main.d2zml6m6uc2eec.amplifyapp.com/"
-      - key: Access-Control-Allow-Methods
-        value: GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS
-      - key: Access-Control-Allow-Headers
-        value: Accept, Content-Type, Authorization, X-Requested-With
-      - key: Access-Control-Allow-Credentials
-        value: "true"
+      - key: 'Access-Control-Allow-Origin'
+        value: 'https://main.d2zml6m6uc2eec.amplifyapp.com'
+      - key: 'Access-Control-Allow-Methods'
+        value: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
+      - key: 'Access-Control-Allow-Headers'
+        value: 'Accept, Content-Type, Authorization, X-Requested-With'
+      - key: 'Access-Control-Allow-Credentials'
+        value: 'true'
+
+redirects:
+  - source: '/api/auth/login'
+    target: '/api/auth/login'
+    status: 200
+    condition: '${http.request.method} != OPTIONS'
