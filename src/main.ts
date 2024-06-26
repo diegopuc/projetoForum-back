@@ -17,7 +17,6 @@ async function bootstrap() {
       'Authorization',
       'X-Requested-With',
     ],
-    credentials: true,
     optionsSuccessStatus: 204, // Responder com status 204 para requisições OPTIONS
   });
 
@@ -27,7 +26,6 @@ async function bootstrap() {
       res.header("Access-Control-Allow-Origin", "https://main.dw4ttizcdvtno.amplifyapp.com");
       res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
       res.header("Access-Control-Allow-Headers", "Accept, Content-Type, Authorization, X-Requested-With");
-      res.header("Access-Control-Allow-Credentials", "true");
       return res.status(204).end();
     }
     next();
