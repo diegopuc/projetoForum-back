@@ -1,23 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './modules/app/app.module';
-import * as express from 'express';
-import * as cors from 'cors';
-import * as fs from 'fs';
-import * as https from 'https';
+var express = require('express') 
+var cors = require('cors')
+
 
 async function bootstrap() {
-  const httpsOptions = {
-    key: fs.readFileSync('path/to/private-key.pem'), // Caminho para sua chave privada
-    cert: fs.readFileSync('path/to/certificate.pem'), // Caminho para seu certificado
-    secureProtocol: 'TLSv1_2_method', // Força o uso do protocolo TLS 1.2
-  };
-
-  const app = await NestFactory.create(AppModule, {
-    httpsOptions,
-  });
-
-  app.use(cors());
+  const app = await NestFactory.create(AppModule);
+  app.use(cors())
   app.enableCors({
     origin: '*', // Ajuste conforme necessário
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
