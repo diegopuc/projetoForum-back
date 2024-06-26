@@ -1,10 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './modules/app/app.module';
+var express = require('express') 
+var cors = require('cors')
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.use(cors())
   app.enableCors({
     origin: 'https://main.dw4ttizcdvtno.amplifyapp.com/', // Ajuste conforme necessário
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
