@@ -19,7 +19,6 @@ async function bootstrap() {
     ],
     optionsSuccessStatus: 204, // Responder com status 204 para requisições OPTIONS
   });
-
   // Middleware para lidar com as requisições OPTIONS manualmente, se necessário
   app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
