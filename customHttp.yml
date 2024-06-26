@@ -1,0 +1,21 @@
+customHeaders:
+- pattern: '*.woff'
+  headers:
+    - key: 'Access-Control-Allow-Origin'
+      value: 'https://main.d1rhvfd1ad5quw.amplifyapp.com'
+    - key: 'Access-Control-Allow-Credentials'
+      value: 'true'
+    - key: 'Access-Control-Allow-Methods'
+      value: 'GET, HEAD'
+- pattern: '*.woff2'
+  headers:
+    - key: 'Access-Control-Allow-Origin'
+      value: 'https://main.d1rhvfd1ad5quw.amplifyapp.com'
+    - key: 'Access-Control-Allow-Credentials'
+      value: 'true'
+    - key: 'Access-Control-Allow-Methods'
+      value: 'GET, HEAD'
+- pattern: '**/*'
+  headers:
+    - key: 'X-Robots-Tag'
+      value: 'noindex'
