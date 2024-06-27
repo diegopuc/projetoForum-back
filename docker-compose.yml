@@ -1,0 +1,18 @@
+services:
+  nodeapp:
+    container_name: nodeapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Replace with your application's port if different
+    environment:
+      - NODE_ENV=production  # Set your desired NODE_ENV
+    volumes:
+      - .:/app  # Mount current directory to /app in container
+    networks:
+      - utip_netword
+
+networks:
+  utip_netword:
+    driver: bridge
