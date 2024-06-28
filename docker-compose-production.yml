@@ -14,5 +14,5 @@ services:
       - utip_network
 
 networks:
-    utip_network:
-        name: ada_network
+  utip_network:
+    name: utip_network:
