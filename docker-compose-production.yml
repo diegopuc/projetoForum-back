@@ -1,0 +1,18 @@
+services:
+  utip:
+    container_name: utip
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - '3000' 
+    environment:
+      - NODE_ENV=production  # Set your desired NODE_ENV
+    volumes:
+      - .:/app  # Mount current directory to /app in container
+    networks:
+      - utip_network
+
+networks:
+  utip_network:
+    driver: bridge
