@@ -15,4 +15,4 @@ services:
 
 networks:
   utip_network:
-    name: utip_network:
+    name: utip_network
