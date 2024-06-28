@@ -14,5 +14,5 @@ services:
       - utip_network
 
 networks:
-  utip_network:
-    driver: bridge
+    utip_network:
+        name: ada_network
