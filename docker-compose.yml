@@ -1,6 +1,6 @@
 services:
-  nodeapp:
-    container_name: nodeapp
+  utip:
+    container_name: utip
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,8 +11,8 @@ services:
     volumes:
       - .:/app  # Mount current directory to /app in container
     networks:
-      - utip_netword
+      - utip_network
 
 networks:
-  utip_netword:
+  utip_network:
     driver: bridge
