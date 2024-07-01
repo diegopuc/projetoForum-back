@@ -15,7 +15,7 @@ async function bootstrap() {
       'Accept',
       'Content-Type',
       'Authorization',
-      'X-Requested-With',
+      'X-Requested-With'
     ],
     optionsSuccessStatus: 204, // Responder com status 204 para requisições OPTIONS
   });
