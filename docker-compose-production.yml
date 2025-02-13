@@ -1,6 +1,7 @@
 services:
   utip:
     container_name: utip
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
